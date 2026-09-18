@@ -14,7 +14,7 @@
 
 .topLeaves {
   position: absolute;
-  top: -65px; /* Đẩy cành lá trên dịch lên trên một chút cho thoáng */
+  top: -65px;
   right: 40px;
   width: 545px;
   height: 382px;
@@ -25,7 +25,7 @@
 
 .middleFlower {
   position: absolute;
-  top: 520px;
+  top: 600px;
   left: -45px;
   height: 481.91px;
   width: 805.151px;
