@@ -3,67 +3,44 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
+    <main className={styles.pageContainer}>
+      
+      {/* Lớp chứa chữ và viền background (hiển thị khi ảnh mờ đi) */}
+      <div className={styles.textLayer}>
+        <div className={styles.textContent}>
           <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+            Hi there! I&apos;m Dieu-Linh Do, a student from Hanoi, Vietnam, and I&apos;ve always been fascinated by the idea that even small actions can create meaningful change. Whether through scientific research, community initiatives, creative expression, or sports, I&apos;m constantly searching for ways to learn, grow, and contribute to something larger than myself.
+          </p>
+          <p>
+            This website is a collection of the experiences that have shaped me over the years. While the projects and activities may seem diverse, they are all connected by a common purpose: using curiosity, creativity, and collaboration to make a positive impact on the people and communities around me.
+          </p>
+          <p>
+            In the Research page, you&apos;ll find the scientific projects and investigations I&apos;ve pursued throughout high school. From artificial intelligence and oncology to nanotechnology and education, research has taught me how powerful curiosity can be when paired with persistence. More importantly, it has shown me how science can improve lives and help address real-world challenges.
+          </p>
+          <p>
+            In the Extracurricular Activities page, you&apos;ll find the organizations, initiatives, and leadership experiences that have allowed me to work alongside incredible people. Whether mentoring students, organizing STEM programs, or leading community projects, these experiences have taught me the value of empathy, teamwork, and service.
+          </p>
+          <p>
+            In the Arts page, you&apos;ll find another side of who I am. Through drawing and dance, I&apos;ve learned to communicate ideas and emotions in ways that go beyond words. Creativity reminds me that innovation is not only about solving problems, it is also about imagining new possibilities.
+          </p>
+          <p>
+            In the Sports page, you&apos;ll find a part of my journey that has taught me resilience, discipline, and perseverance. Athletics has shown me the importance of pushing beyond limitations, supporting teammates, and continuing to move forward even when progress feels slow.
           </p>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+
+      <div className={styles.imageLayer}>
+        <Image
+          src="/image/anh.png"
+          alt="Dieu-Linh Do presenting"
+          fill
+          priority
+          quality={100}
+          unoptimized={true}
+          style={{ objectFit: "cover", objectPosition: "center center" }}
+        />
+      </div>
+
+    </main>
   );
 }

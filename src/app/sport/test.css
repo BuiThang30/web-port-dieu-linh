@@ -1,0 +1,401 @@
+/* =========================================
+   BASE STYLES (Màn hình lớn >= 1440px)
+   ========================================= */
+.pageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  aspect-ratio: 1440 / 924;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EAE5DB;
+  overflow: hidden;
+}
+
+.bgLayer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 2;
+  pointer-events: none; 
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px; 
+}
+
+/* GIAO DIỆN TRANG CHỦ (Biển gỗ ở giữa) */
+.homeSignpostContainer {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.homeSignLabels {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 120px;
+  padding: 0 20px;
+}
+
+.homeSignBtn {
+  background: none;
+  border: none;
+  color: #FFF;
+  text-align: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.50);
+  font-family: var(--font-instrument-serif), "Instrument Serif", serif;
+  font-size: 47px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.homeSignBtn:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+/* GIAO DIỆN CHI TIẾT (SLIDER) */
+.detailContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  margin-top: -30px; 
+}
+
+.mainContentArea {
+  --box-width: 340px;
+  --box-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: calc((var(--box-width) * 3) + (var(--box-gap) * 2));
+}
+
+.textSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.title {
+  color: #000;
+  font-family: var(--font-instrument-serif), "Instrument Serif", serif;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  text-align: left;
+}
+
+.description {
+  color: #263019;
+  text-align: justify;
+  font-family: var(--font-instrument-sans), "Instrument Sans", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 100%;
+  margin: 0;
+}
+
+.description p {
+  margin: 0;
+}
+
+/* --- KHU VỰC SLIDER TRƯỢT NGANG --- */
+.sliderWindow {
+  width: calc((var(--box-width) * 3) + (var(--box-gap) * 2));
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.sliderTrack {
+  display: flex;
+  gap: var(--box-gap);
+  width: fit-content;
+}
+
+.blackBox {
+  flex-shrink: 0;
+  position: relative;
+  width: var(--box-width); 
+  aspect-ratio: 340 / 230;
+  height: auto; 
+  background-color: #232a1e; 
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 20;
+}
+
+/* NÚT MŨI TÊN ĐIỀU HƯỚNG SLIDE (< >) */
+.navArrow {
+  position: absolute;
+  top: 68%;
+  transform: translateY(-50%);
+  background: rgba(234, 229, 219, 0.85);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-size: 26px;
+  color: #263019;
+  cursor: pointer;
+  z-index: 30;
+  transition: all 0.2s ease;
+}
+
+.navArrow:hover {
+  background: rgba(234, 229, 219, 1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prevArrow {
+  left: -55px;
+}
+
+.nextArrow {
+  right: -55px;
+}
+
+/* --- THANH MENU ĐIỀU HƯỚNG BÊN DƯỚI (BOTTOM NAV) --- */
+.bottomNavContainer {
+  position: absolute;
+  bottom: 50px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+  padding: 0 20px;
+}
+
+.navLine {
+  width: 100%;
+  height: 2px;
+  background-color: #FFF;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.30);
+}
+
+.navItems {
+  display: flex;
+  gap: 50px;
+  margin-top: 14px;
+  align-items: center;
+}
+
+.navItemBtn {
+  background: none;
+  border: none;
+  color: #FFF;
+  text-align: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.50);
+  font-family: var(--font-instrument-serif), "Instrument Serif", serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  padding: 0;
+}
+
+.navItemBtn:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+.activeNav {
+  text-decoration: underline;
+  text-decoration-color: #FFF; 
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES (Giống code mẫu)
+   ========================================= */
+
+@media (max-width: 1200px) {
+  .mainContentArea {
+    --box-width: 270px;
+    --box-gap: 14px;
+  }
+  .title {
+    font-size: 32px;
+  }
+  .description {
+    font-size: 16px;
+  }
+  .navItemBtn {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mainContentArea {
+    --box-width: 220px;
+    --box-gap: 12px;
+  }
+  .title {
+    font-size: 28px;
+  }
+  .description {
+    font-size: 15px;
+  }
+  .navItems {
+    gap: 30px;
+  }
+  .navItemBtn {
+    font-size: 30px;
+  }
+  .prevArrow { left: -40px; }
+  .nextArrow { right: -40px; }
+
+  .homeSignLabels {
+    gap: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    aspect-ratio: auto;
+    min-height: 850px;
+  }
+  
+  .contentWrapper {
+    padding: 20px 15px;
+  }
+
+  .homeSignpostContainer {
+    width: 260px;
+    height: 340px;
+    top: 10%;
+  }
+
+  .homeSignBtn {
+    font-size: 44px;
+  }
+
+  .homeSignLabels {
+    gap: 120px;
+  }
+
+  .mainContentArea {
+    --box-width: 280px;
+    --box-gap: 16px;
+    max-width: var(--box-width);
+  }
+
+  .sliderWindow {
+    width: var(--box-width);
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .navArrow {
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+  }
+  .prevArrow {
+    left: -45px;
+  }
+  .nextArrow {
+    right: -45px;
+  }
+
+  .bottomNavContainer {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 30px;
+    padding: 0;
+  }
+
+  .navItems {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .navItemBtn {
+    font-size: 30px;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .pageContainer {
+    min-height: 780px;
+  }
+  .mainContentArea {
+    --box-width: 240px;
+    --box-gap: 10px;
+  }
+  .title {
+    font-size: 24px;
+  }
+  .description {
+    font-size: 13px;
+  }
+  .navItemBtn {
+    font-size: 26px;
+  }
+  .prevArrow {
+    left: -40px;
+  }
+  .nextArrow {
+    right: -40px;
+  }
+}

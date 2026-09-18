@@ -1,0 +1,394 @@
+.pageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  aspect-ratio: 1440 / 924;
+  height: auto; 
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EAE5DB;
+  overflow: hidden;
+}
+
+.signpostUnderLayer {
+  position: absolute;
+  left: 10px;
+  bottom: 50px;
+  width: 350px;
+  height: 500px;
+  z-index: 1;
+}
+
+.bgLayer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center bottom; 
+  z-index: 2;
+  pointer-events: none; 
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 80px 60px 60px 60px; 
+}
+
+.signpostContainer {
+  width: 350px;
+  height: 100%;
+  display: flex;
+  align-items: flex-end; 
+}
+
+.signBtn {
+  background: none;
+  border: none;
+  color: #263019;
+  font-family: var(--font-instrument-serif), "Instrument Serif", serif;
+  font-size: 28px; 
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity 0.2s, transform 0.2s;
+  width: 100%;
+  z-index: 99999;
+  /* FIX QUAN TRỌNG: Ngăn chặn tuyệt đối việc rớt dòng khiến chữ dồn cục */
+  white-space: nowrap; 
+}
+
+.activeSign {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* =====================================
+   CỤM CHỮ MÀN HÌNH CHÍNH (HOME MODE)
+   ===================================== */
+.homeMode {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 8.66%; 
+  height: 74.68%; 
+  width: auto;
+  aspect-ratio: 350 / 690;
+}
+
+.homeMode .signpostClickArea {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.homeMode .signLabels {
+  position: absolute;
+  top: -5%; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; 
+  padding: 15% 0 25% 0; 
+}
+
+.homeMode .signBtn {
+  position: relative;
+  font-size: clamp(22px, 2.8vw, 40px);
+}
+
+.homeMode .signBtn:hover {
+  transform: scale(1.05);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+}
+
+/* =====================================
+   DETAIL MODE
+   ===================================== */
+.detailMode {
+  position: relative;
+}
+
+.detailMode .signpostClickArea {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.detailMode .signLabels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block; 
+}
+
+.detailMode .signBtn {
+  position: absolute;
+  left: 38%;
+  transform: translateX(-50%);
+}
+
+.detailMode .signBtn:hover {
+  transform: translateX(-50%) scale(1.05);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+}
+
+.detailMode .signBtn:nth-child(1) { top: 65px; }
+.detailMode .signBtn:nth-child(2) { top: 160px; }
+.detailMode .signBtn:nth-child(3) { top: 255px; }
+
+.rightColumn {
+  position: absolute;
+  right: 60px;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 9999;
+}
+
+.textSection {
+  width: auto;
+  max-width: 1095px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: visible;
+  margin-right: 200px;
+}
+
+.title {
+  width: 100%;
+  color: #000;
+  text-align: right;
+  font-family: var(--font-instrument-serif), "Instrument Serif", serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.titleSmall {
+  font-size: 40px;
+}
+
+.description {
+  width: 100%;
+  color: #000;
+  text-align: right;
+  font-family: var(--font-instrument-sans), "Instrument Sans", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.description p {
+  margin: 0 0 10px 0;
+}
+
+.rightContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  z-index: 9999;
+}
+
+.mediaAndLinks {
+  width: 865px; 
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-right: 140px;
+}
+
+.imageGallery {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.blackBox {
+  flex-shrink: 0;
+  position: relative;
+  width: 280px; 
+  height: 192px; 
+  background-color: #232a1e; 
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.subMenu {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid #000; 
+  padding-top: 15px;
+  margin-top: 5px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 99999;
+}
+
+.menuRow {
+  flex-direction: row;
+  flex-wrap: wrap;     
+  gap: 30px;           
+}
+
+.menuCol {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.subLink {
+  background: none;
+  border: none;
+  color: #000;
+  font-family: var(--font-instrument-serif), "Instrument Serif", serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  text-align: left;
+  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+  padding: 0;
+  z-index: 99999;
+}
+
+.subLink:hover {
+  transform: translateY(-2px);
+  text-decoration: underline;
+}
+
+.activeSubLink {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================= */
+
+@media (max-width: 1439px) {
+  .pageContainer { overflow-y: auto; }
+  .contentWrapper { padding: 60px 320px 80px 60px; flex-direction: column; align-items: flex-start; }
+  .signpostUnderLayer { display: none; }
+  
+  .detailMode.signpostContainer { 
+    width: 100%; 
+    height: auto; 
+    padding: 0; 
+    margin-bottom: 25px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .detailMode .signpostClickArea { height: auto; }
+  .detailMode .signLabels {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 25px;
+    height: auto;
+  }
+  .detailMode .signBtn {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: auto;
+    font-size: 26px;
+  }
+  .detailMode .signBtn:hover { transform: scale(1.05) !important; }
+  
+  .rightColumn { 
+    position: relative; 
+    right: auto; 
+    top: auto; 
+    width: 100%; 
+    max-width: 100%; 
+    align-items: flex-start; 
+  }
+  .textSection { margin-right: 0; max-width: 100%; }
+  .title, .description { text-align: left; }
+  .title { font-size: 40px; }
+  .titleSmall { font-size: 32px; }
+  .description { font-size: 18px; }
+  .mediaAndLinks { margin-right: 0; width: 100%; align-items: flex-start; }
+  .imageGallery { gap: 15px; justify-content: flex-start; width: 100%; }
+  .blackBox { width: calc(33.33% - 10px); height: auto; aspect-ratio: 280 / 192; }
+  .subMenu { justify-content: flex-start; margin-bottom: 40px; }
+}
+
+@media (max-width: 1200px) {
+  .contentWrapper { padding: 60px 260px 80px 40px; }
+  .detailMode .signBtn { font-size: 24px; }
+  .title { font-size: 36px; }
+  .titleSmall { font-size: 28px; }
+  .description { font-size: 17px; }
+}
+
+@media (max-width: 1024px) {
+  .contentWrapper { padding: 40px 220px 100px 30px; }
+  .detailMode .signBtn { font-size: 22px; }
+  .title { font-size: 32px; }
+  .titleSmall { font-size: 26px; }
+  .description { font-size: 16px; }
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    aspect-ratio: auto;
+    min-height: 100vh;
+    padding-top: 40px; 
+    padding-bottom: 80px; 
+  }
+  .contentWrapper {
+    flex: 1;
+    padding: 0 20px 100px 20px; 
+    justify-content: flex-start;
+  }
+  
+  .homeMode {
+    bottom: -35.66vh; 
+    height: 70.68vh; 
+    width: calc(74.68vh * (350 / 690)); 
+    aspect-ratio: auto;
+  }
+  .homeMode .signLabels { padding: 15% 0 25% 0; }
+  .homeMode .signBtn { font-size: clamp(30px, 2.5vh, 26px); }
+
+  .detailMode .signBtn { font-size: 20px; }
+  .imageGallery { flex-wrap: wrap; }
+  .blackBox { width: calc(33.33% - 10px); min-width: 100px; }
+  .menuCol { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .homeMode .signBtn { font-size: clamp(30px, 2vh, 20px); }
+  .detailMode .signLabels { gap: 10px; }
+  .detailMode .signBtn { font-size: 18px; }
+  .title { font-size: 28px; }
+  .titleSmall { font-size: 24px; }
+  .description { font-size: 15px; }
+  .blackBox { width: 100%; margin-bottom: 10px; }
+}
