@@ -9,8 +9,6 @@ import styles from './page.module.css';
 export default function ExtracurricularsPage() {
   const searchParams = useSearchParams();
 
-  // Dùng key theo searchParams: mỗi khi searchParams đổi (bấm lại link Navbar),
-  // React sẽ remount ExtracurricularsContent -> state bên trong tự reset về null
   return <ExtracurricularsContent key={searchParams.toString()} />;
 }
 
@@ -42,7 +40,11 @@ function ExtracurricularsContent() {
         </div>
       )}
 
-      <div className={styles.bgLayer} style={{ backgroundImage: bgImage }}></div>
+      {/* FIX: Thêm logic để phân biệt background trang chủ và trang nội dung */}
+      <div 
+        className={`${styles.bgLayer} ${activeCategoryIndex === null ? '' : styles.bgDetail}`} 
+        style={{ backgroundImage: bgImage }}
+      ></div>
 
       <div className={styles.contentWrapper}>
         <div

@@ -362,6 +362,12 @@
     padding-top: 40px; 
     padding-bottom: 80px; 
   }
+  .bgDetail {
+    background-size: 150% auto !important; 
+    background-position: center bottom !important;
+    background-repeat: no-repeat !important;
+  }
+
   .contentWrapper {
     flex: 1;
     padding: 0 20px 100px 20px; 
