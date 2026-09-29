@@ -1,7 +1,6 @@
 .pageContainer {
   position: relative;
   width: 100%;
-  max-width: 1440px;
   aspect-ratio: 1440 / 924;
   height: auto; 
   margin: 0 auto;

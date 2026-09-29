@@ -13,9 +13,7 @@ export const researchData: ResearchItem[] = [
     title: "7th Advanced Innovation Global Competition Singapore 2025",
     desc: "Awarded a Gold Medal for presenting research on MnFe₂O₄-based magnetic nanoparticles for targeted and controlled drug release. Conducted at the laboratory of Hanoi National University of Education, the project explored innovative nanotechnology-based drug delivery systems aimed at improving therapeutic precision and reducing side effects.",
     type: 'gallery',
-    // Cập nhật đường dẫn ảnh thật của bạn vào đây (vd: '/image/anh1.jpg')
-    // Hiện tại tôi để trống '' thì nó sẽ hiện khối màu đen gốc
-    images: ['/image/anh1.png', '/image/anh2.png', '/image/anh3.png', '/image/anh4.png'] 
+    images: ['/image/anh1.png', '/image/anh2.png', '/image/anh3.png', '/image/anh4.png', '/image/anh5.png', '/image/anh6.png', '/image/anh7.png', '/image/anh8.png', '/image/anh9.png'] 
   },
   {
     id: 1,

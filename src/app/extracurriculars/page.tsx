@@ -40,7 +40,6 @@ function ExtracurricularsContent() {
         </div>
       )}
 
-      {/* FIX: Thêm logic để phân biệt background trang chủ và trang nội dung */}
       <div 
         className={`${styles.bgLayer} ${activeCategoryIndex === null ? '' : styles.bgDetail}`} 
         style={{ backgroundImage: bgImage }}
