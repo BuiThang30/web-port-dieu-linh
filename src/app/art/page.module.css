@@ -35,7 +35,7 @@
 
 .bottomLeaves {
   position: absolute;
-  top: 1535px; 
+  top: 1535px;
   right: 80px;
   width: 545px;
   height: 382px;
@@ -58,6 +58,10 @@
 }
 
 .artSectionBlock {
+  /* Chiều cao ô ảnh + khoảng cách: dùng chung cho slider và hàng ảnh tĩnh */
+  --box-height: 300px;
+  --box-gap: 9.1875px;
+
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -98,11 +102,10 @@
   margin: 0;
 }
 
-/* KHU VỰC SLIDER */
+/* =========================================
+   KHU VỰC SLIDER (từ 3 ảnh trở lên)
+   ========================================= */
 .sliderContainer {
-  --box-width: 390.875px;
-  --box-gap: 9.1875px;
-
   position: relative;
   display: flex;
   align-items: center;
@@ -111,28 +114,49 @@
 }
 
 .sliderWindow {
-  width: calc((var(--box-width) * 3) + (var(--box-gap) * 2));
+  width: 100%;
+  max-width: 1190px;
   overflow: hidden;
   margin-top: 20px;
 }
 
 .sliderTrack {
+  position: relative; /* bắt buộc: để offsetLeft của ô ảnh đo đúng so với track */
   display: flex;
-  gap: var(--box-gap); 
-  width: fit-content;
+  align-items: center;
+  gap: var(--box-gap);
+  width: max-content;
 }
 
+/* Ô ảnh: cao cố định, rộng tự tính theo aspect-ratio (đặt inline trong tsx) */
 .blackBox {
   flex-shrink: 0;
   position: relative;
-  width: var(--box-width); 
-  height: 268.028px; 
-  background-color: #232a1e; 
+  height: var(--box-height);
+  background-color: #232a1e;
   border-radius: 4px;
   overflow: hidden;
   z-index: 10;
 }
 
+/* =========================================
+   DƯỚI 3 ẢNH: hiển thị tĩnh, không mũi tên
+   ========================================= */
+.staticRow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--box-gap);
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 55px;
+  margin-top: 20px;
+}
+
+/* =========================================
+   MŨI TÊN
+   ========================================= */
 .navArrow {
   position: absolute;
   top: 50%;
@@ -160,15 +184,13 @@
   right: -20px;
 }
 
-
 /* =========================================
    RESPONSIVE CHO MÀN HÌNH NHỎ (Dưới 1440px)
    ========================================= */
-
 @media (max-width: 1439px) {
   .pageContainer {
     width: 100%;
-    height: 1998px; 
+    height: 1998px;
   }
 
   .prevArrow { left: -10px; font-size: 36px; }
@@ -176,13 +198,15 @@
 }
 
 @media (max-width: 1200px) {
-  .sliderContainer {
-    --box-width: 400px;
+  .artSectionBlock {
+    --box-height: 260px;
   }
+
   .sliderWindow {
-    width: calc((var(--box-width) * 2) + var(--box-gap));
+    max-width: 800px;
   }
-  .middleFlower{
+
+  .middleFlower {
     top: 600px;
     left: -45px;
   }
@@ -194,17 +218,42 @@
     min-height: 100vh;
   }
 
-  .sliderContainer { --box-width: 85vw; }
-  .sliderWindow { width: var(--box-width); }
-  .blackBox { height: auto; aspect-ratio: 390.875 / 268.028; }
-  
-  .contentWrapper { gap: 80px; padding-top: 40px; padding-bottom: 80px; }
-  .textSection { padding: 0 20px; align-items: center; text-align: center; margin-left: 0; }
+  .artSectionBlock {
+    --box-height: 220px;
+    --box-gap: 8px;
+  }
+
+  .sliderWindow {
+    width: 85vw;
+    max-width: 85vw;
+  }
+
+  .staticRow {
+    padding: 0 20px;
+  }
+
+  .contentWrapper {
+    gap: 80px;
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+
+  .textSection {
+    padding: 0 20px;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+  }
+
   .title { font-size: 45px; text-align: center; }
   .description { font-size: 16px; text-align: center; }
-  
-  .topLeaves, .middleFlower, .bottomLeaves { display: none; }
-  
+
+  .topLeaves,
+  .middleFlower,
+  .bottomLeaves {
+    display: none;
+  }
+
   .navArrow {
     font-size: 24px;
     width: 40px;
@@ -214,10 +263,15 @@
     justify-content: center;
     padding: 0;
   }
+
   .prevArrow { left: -10px; }
   .nextArrow { right: -10px; }
 }
 
 @media (max-width: 480px) {
   .title { font-size: 38px; }
+
+  .artSectionBlock {
+    --box-height: 190px;
+  }
 }

@@ -48,7 +48,7 @@
 .signBtn {
   background: none;
   border: none;
-  color: #263019;
+  color: #0B4232;
   font-family: var(--font-instrument-serif), "Instrument Serif", serif;
   font-size: 28px; 
   font-weight: 400;
@@ -227,7 +227,7 @@
   position: relative;
   width: 280px; 
   height: 192px; 
-  background-color: #232a1e; 
+  background-color: #0B4232; 
   border-radius: 4px;
   overflow: hidden;
   z-index: 9999;
