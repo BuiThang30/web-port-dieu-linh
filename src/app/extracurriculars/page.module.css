@@ -57,7 +57,7 @@
   transition: opacity 0.2s, transform 0.2s;
   width: 100%;
   z-index: 99999;
-  /* FIX QUAN TRỌNG: Ngăn chặn tuyệt đối việc rớt dòng khiến chữ dồn cục */
+  /* Ngăn chặn việc rớt dòng khiến chữ dồn cục */
   white-space: nowrap; 
 }
 
@@ -216,6 +216,14 @@
   margin-right: 140px;
 }
 
+/* =====================================
+   VIDEO CAROUSEL (chỉ mục Lumos dùng)
+   ===================================== */
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
 .imageGallery {
   display: flex;
   justify-content: space-between;
@@ -232,6 +240,45 @@
   overflow: hidden;
   z-index: 9999;
 }
+
+.videoFrame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.arrowBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #0B4232;
+  background: #EAE5DB;
+  color: #0B4232;
+  font-family: var(--font-instrument-serif), "Instrument Serif", serif;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 100000;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.arrowBtn:hover {
+  background: #0B4232;
+  color: #EAE5DB;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.arrowLeft  { left: -48px; }
+.arrowRight { right: -48px; }
 
 .subMenu {
   display: flex;
@@ -336,6 +383,11 @@
   .imageGallery { gap: 15px; justify-content: flex-start; width: 100%; }
   .blackBox { width: calc(33.33% - 10px); height: auto; aspect-ratio: 280 / 192; }
   .subMenu { justify-content: flex-start; margin-bottom: 40px; }
+
+  /* Mũi tên nằm đè lên mép video để không bị tràn màn hình */
+  .arrowLeft  { left: 6px; }
+  .arrowRight { right: 6px; }
+  .arrowBtn   { background: rgba(234, 229, 219, 0.9); }
 }
 
 @media (max-width: 1200px) {

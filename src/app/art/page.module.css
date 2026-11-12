@@ -1,15 +1,16 @@
 /* =========================================
-   BASE STYLES (Chuẩn 1440 x 1998)
+   BASE STYLES
    ========================================= */
 .pageContainer {
   position: relative;
   width: 100%;
-  height: 1998px;
+  min-height: 1998px;
   margin: 0 auto;
   background-color: #EAE5DB;
   overflow: hidden;
   display: flex;
   justify-content: center;
+  padding-bottom: 200px;
 }
 
 .topLeaves {
@@ -25,7 +26,7 @@
 
 .middleFlower {
   position: absolute;
-  top: 600px;
+  top: 800px;
   left: -45px;
   height: 481.91px;
   width: 805.151px;
@@ -35,8 +36,8 @@
 
 .bottomLeaves {
   position: absolute;
-  top: 1535px;
-  right: 80px;
+  bottom: -80px;
+  right: 0px;
   width: 545px;
   height: 382px;
   aspect-ratio: 107 / 75;
@@ -54,11 +55,9 @@
   flex-direction: column;
   justify-content: flex-start;
   padding-top: 155px;
-  gap: 350px;
 }
 
 .artSectionBlock {
-  /* Chiều cao ô ảnh + khoảng cách: dùng chung cho slider và hàng ảnh tĩnh */
   --box-height: 300px;
   --box-gap: 9.1875px;
 
@@ -68,22 +67,42 @@
   width: 100%;
 }
 
+.artSectionBlock:nth-child(1) {
+  margin-bottom: 350px;
+}
+
+.artSectionBlock:nth-child(2) {
+  margin-bottom: 100px;
+}
+
 .textSection {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0px; 
   width: 100%;
   max-width: 1191px;
   margin-left: 55px;
 }
 
-.title {
+.category {
   color: #000;
   font-family: var(--font-instrument-serif), "Instrument Serif", serif;
+  /* Giữ nguyên CSS kích thước to gốc của tiêu đề cũ */
   font-size: 89.496px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.title {
+  color: #000;
+  font-family: var(--font-instrument-serif), "Instrument Serif", serif;
+  /* Nhỏ đi 50% so với category */
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.15;
   margin: 0;
 }
 
@@ -96,6 +115,7 @@
   line-height: normal;
   max-width: 750px;
   margin: 0;
+  margin-top: 12px;
 }
 
 .description p {
@@ -103,7 +123,7 @@
 }
 
 /* =========================================
-   KHU VỰC SLIDER (từ 3 ảnh trở lên)
+   KHU VỰC SLIDER (từ 3 item trở lên)
    ========================================= */
 .sliderContainer {
   position: relative;
@@ -121,14 +141,14 @@
 }
 
 .sliderTrack {
-  position: relative; /* bắt buộc: để offsetLeft của ô ảnh đo đúng so với track */
+  position: relative;
   display: flex;
   align-items: center;
   gap: var(--box-gap);
   width: max-content;
 }
 
-/* Ô ảnh: cao cố định, rộng tự tính theo aspect-ratio (đặt inline trong tsx) */
+/* Ô Media: cao cố định, rộng tự tính theo aspect-ratio */
 .blackBox {
   flex-shrink: 0;
   position: relative;
@@ -140,7 +160,7 @@
 }
 
 /* =========================================
-   DƯỚI 3 ẢNH: hiển thị tĩnh, không mũi tên
+   DƯỚI 3 ITEM: hiển thị tĩnh, không mũi tên
    ========================================= */
 .staticRow {
   display: flex;
@@ -188,11 +208,6 @@
    RESPONSIVE CHO MÀN HÌNH NHỎ (Dưới 1440px)
    ========================================= */
 @media (max-width: 1439px) {
-  .pageContainer {
-    width: 100%;
-    height: 1998px;
-  }
-
   .prevArrow { left: -10px; font-size: 36px; }
   .nextArrow { right: -10px; font-size: 36px; }
 }
@@ -201,11 +216,9 @@
   .artSectionBlock {
     --box-height: 260px;
   }
-
   .sliderWindow {
     max-width: 800px;
   }
-
   .middleFlower {
     top: 600px;
     left: -45px;
@@ -213,47 +226,44 @@
 }
 
 @media (max-width: 768px) {
-  .pageContainer {
-    height: auto;
-    min-height: 100vh;
-  }
-
   .artSectionBlock {
     --box-height: 220px;
     --box-gap: 8px;
   }
-
+  .artSectionBlock:nth-child(1) {
+    margin-bottom: 100px;
+  }
+  .artSectionBlock:nth-child(2) {
+    margin-bottom: 60px;
+  }
   .sliderWindow {
     width: 85vw;
     max-width: 85vw;
   }
-
   .staticRow {
     padding: 0 20px;
   }
-
   .contentWrapper {
-    gap: 80px;
     padding-top: 40px;
     padding-bottom: 80px;
   }
-
   .textSection {
     padding: 0 20px;
     align-items: center;
     text-align: center;
     margin-left: 0;
   }
-
-  .title { font-size: 45px; text-align: center; }
+  /* Trên mobile: Category vẫn to gấp đôi Title */
+  .category { font-size: 45px; text-align: center; } 
+  .title { font-size: 24px; text-align: center; } 
   .description { font-size: 16px; text-align: center; }
-
+  
   .topLeaves,
   .middleFlower,
   .bottomLeaves {
     display: none;
   }
-
+  
   .navArrow {
     font-size: 24px;
     width: 40px;
@@ -263,14 +273,13 @@
     justify-content: center;
     padding: 0;
   }
-
   .prevArrow { left: -10px; }
   .nextArrow { right: -10px; }
 }
 
 @media (max-width: 480px) {
-  .title { font-size: 38px; }
-
+  .category { font-size: 38px; }
+  .title { font-size: 20px; }
   .artSectionBlock {
     --box-height: 190px;
   }

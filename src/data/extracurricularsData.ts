@@ -2,7 +2,10 @@ export type ExtraSubItem = {
   id: string;
   title: string;
   desc: string;
-  images: string[];
+  /** Ảnh thường (mục nào không có videos thì hiện ảnh). */
+  images?: string[];
+  /** Link YouTube đầy đủ hoặc chỉ ID. Nếu có videos thì hiện carousel video thay cho ảnh. Nên >= 4 video để chạy vòng lặp. */
+  videos?: string[];
   linkLabel: string;
 };
 
@@ -11,6 +14,15 @@ export type ExtraCategory = {
   categoryName: string;
   items: ExtraSubItem[];
 };
+
+// TODO: 5 video tạm khác nhau, sau này thay bằng link thật
+const PLACEHOLDER_VIDEOS = [
+  'https://www.youtube.com/watch?v=EVeAmnLlUow&list=RDEVeAmnLlUow&start_radio=1',
+  'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+  'https://www.youtube.com/watch?v=jNQXAC9IVRw',
+  'https://www.youtube.com/watch?v=9bZkp7q19f0',
+  'https://www.youtube.com/watch?v=kJQP7kiw5Fk'
+];
 
 export const extracurricularsData: ExtraCategory[] = [
   {
@@ -121,11 +133,8 @@ export const extracurricularsData: ExtraCategory[] = [
         id: 'lumos',
         title: "Lumos Dance Crew — Founder & Captain | Grades 9–12",
         desc: "I started Lumos Dance Crew with a small group of students who simply enjoyed dancing together, and over time it grew into a team of more than 20 members across different grades (middle school to high school). I managed rehearsals, supported younger members as they improved, and helped coordinate performances for school events. With over ten showcases, the experience became less about performance itself and more about building confidence, trust, and a space where people could express themselves freely.",
-        images: [
-          '/image/extracurriculars-25.png',
-          '/image/extracurriculars-26.png',
-          '/image/extracurriculars-27.png'
-        ],
+        // Chỉ mục này dùng video (carousel vòng lặp vô hạn)
+        videos: [...PLACEHOLDER_VIDEOS],
         linkLabel: "Lumos Dance Crew—Founder & Captain | Grades 9–12"
       },
       {
