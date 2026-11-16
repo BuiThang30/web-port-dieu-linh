@@ -15,13 +15,11 @@ export type ExtraCategory = {
   items: ExtraSubItem[];
 };
 
-// TODO: 5 video tạm khác nhau, sau này thay bằng link thật
 const PLACEHOLDER_VIDEOS = [
-  'https://www.youtube.com/watch?v=EVeAmnLlUow&list=RDEVeAmnLlUow&start_radio=1',
-  'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-  'https://www.youtube.com/watch?v=jNQXAC9IVRw',
-  'https://www.youtube.com/watch?v=9bZkp7q19f0',
-  'https://www.youtube.com/watch?v=kJQP7kiw5Fk'
+  'https://www.youtube.com/watch?v=JbhfQKIdGC0',
+  'https://www.youtube.com/watch?v=yMm5xI1W7us',
+  'https://www.youtube.com/watch?v=vLBB_ZXlRbU',
+  'https://www.youtube.com/watch?v=f-_AeecEq3M'
 ];
 
 export const extracurricularsData: ExtraCategory[] = [
